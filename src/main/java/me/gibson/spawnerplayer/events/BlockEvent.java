@@ -33,7 +33,6 @@ public class BlockEvent
         if (event.getBlock().getType() == Material.SPAWNER) {
             // Check if the world is not in the enabled worlds list
             if (!Configuration.getEnabledWorlds().contains(event.getBlock().getWorld().getName())) {
-                // If the player doesn't have a silk touch pickaxe, prevent the spawner from dropping
                     event.setDropItems(false);
                     player.sendMessage(Utils.color("&cSpawners won't drop in this world!"));
                     return;
