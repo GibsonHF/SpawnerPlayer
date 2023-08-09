@@ -29,6 +29,16 @@ public class BlockEvent
 
     @EventHandler
     public void blockBreak(BlockBreakEvent event) {
+        Player player = event.getPlayer();
+        if (event.getBlock().getType() == Material.SPAWNER) {
+            // Check if the world is not in the enabled worlds list
+            if (!Configuration.getEnabledWorlds().contains(event.getBlock().getWorld().getName())) {
+                // If the player doesn't have a silk touch pickaxe, prevent the spawner from dropping
+                    event.setDropItems(false);
+                    player.sendMessage(Utils.color("&cSpawners won't drop in this world!"));
+                    return;
+            }
+        }
         Location lastLocation;
         Block block = event.getBlock();
         if (block == null || !block.getType().name().contains("SPAWNER")) {
@@ -46,6 +56,7 @@ public class BlockEvent
         Utils.sendMessage(event.getPlayer(), Configuration.getString(Configuration.getConfig(), "lang.cannot-break"));
         this.locations.put(event.getPlayer(), location);
         Bukkit.getScheduler().runTaskLater(this.manager.plugin, () -> this.locations.remove(event.getPlayer()), 30L);
+
     }
 
     @EventHandler

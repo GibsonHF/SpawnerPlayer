@@ -2,6 +2,8 @@ package me.gibson.spawnerplayer.utils;
 
 import java.io.File;
 import java.lang.reflect.Field;
+import java.util.List;
+
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -44,6 +46,10 @@ public class Configuration {
             return "";
         }
         return section.getString(s, "");
+    }
+
+    public static List<String> getEnabledWorlds() {
+        return config.getStringList("settings.enabled-worlds");
     }
 
     public static String getString(YamlConfiguration config, String s) {

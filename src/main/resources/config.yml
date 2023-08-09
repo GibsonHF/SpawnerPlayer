@@ -1,0 +1,16 @@
+settings:
+  enabled-worlds:
+    - world
+    - world_nether
+  allowed-worlds:
+    - "resourceworld"
+    - "resourceend"
+    - "resourcenether"
+  blocked-items:
+    - "SPAWNER"
+    - "GOLDEN_APPLE"
+
+lang:
+  cannot-break: "&cYou cannot break this block as this spawner isn't placed by a player."
+  cannot-spawn-wither: "&cYou cannot spawn a wither here."
+  cannot-rename-item: "&cYou cannot rename this item."
