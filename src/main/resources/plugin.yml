@@ -1,0 +1,4 @@
+name: SpawnerPlayer
+version: '${version}'
+main: me.gibson.spawnerplayer.SpawnerPlayer
+api-version: '1.20'
